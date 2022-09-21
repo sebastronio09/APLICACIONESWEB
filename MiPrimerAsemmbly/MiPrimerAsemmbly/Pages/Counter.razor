@@ -1,0 +1,47 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<button class="btn btn-primary" @onclick="aleatorio">Numero random</button>
+<p role="status">Numero aleatorio: @numero @algo </p>
+
+
+@code {
+    private int currentCount = 0;
+    private string algo = "";
+
+    private double numero;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    private void aleatorio()
+    {
+        Random rnd = new Random();
+
+        numero = rnd.Next();
+
+        if (numero % 3 == 0)
+        {
+            algo = "Tendras suerte";
+        }
+
+        else if(numero % 2 == 0)
+        {
+            algo = "No tendremos suerte esta vez";
+        }
+        else
+        {
+            algo = "No es divisible";
+        }
+
+
+    }
+}

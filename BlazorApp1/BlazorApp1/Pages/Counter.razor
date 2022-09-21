@@ -1,0 +1,62 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount @aviso</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+<br />
+<input placeholder="Numero 1: " @bind-value="@a" />
+<input placeholder="Numero 2: " @bind-value="@b" />
+
+<button class="btn btn-primary" @onclick="Suma">Suma</button>
+<button class="btn btn-primary" @onclick="Resta">Resta</button>
+<button class="btn btn-primary" @onclick="Multiplicacion">Multiplicacion</button>
+<button class="btn btn-primary" @onclick="Division">Division</button>
+
+
+<p role="status">Resultado: @resultado</p>
+
+
+@code {
+    private double resultado;
+    private double a;
+    private double b;
+    private double x;
+    private int currentCount = 0;
+    private String aviso = "";
+    private void IncrementCount()
+    {
+        currentCount++; 
+
+        if(currentCount % 2 == 0)
+        {
+            aviso = " Es divisible entre 2";
+        }
+        else
+        {
+            aviso = "";
+        }
+    }
+
+    private void Suma()
+    {
+        resultado = a + b;
+    }
+
+    private void Resta()
+    {
+         resultado = a - b;
+    }
+    private void Multiplicacion()
+    {
+         resultado = a * b;
+    }
+    private void Division()
+    {
+         resultado = a / b;
+    }
+}
